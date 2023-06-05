@@ -5,7 +5,7 @@ from .models import Women, Category
 
 @admin.register(Women)
 class WomenAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title')
+    list_display = ('id', 'title', 'user')
 
 
 # admin.site.register(Women, WomenAdmin)
