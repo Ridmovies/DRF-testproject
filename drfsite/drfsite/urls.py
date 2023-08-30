@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
 
 from women.views import WomenAPIList, WomenAPIDestroy, WomenAPIUpdate
@@ -47,5 +47,12 @@ urlpatterns = [
 
     # path('api/v1/womenlist/', WomenViewSet.as_view({'get': 'list'})),
     # path('api/v1/womenlist/<int:pk>/', WomenViewSet.as_view({'put': 'update'})),
+
+
+    # ---- Include Djoser and JWT -------
+    path(r'api/v1/auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.jwt')),
+    # re_path(r'^auth/', include('djoser.urls.authtoken')),
+
 ]
 
